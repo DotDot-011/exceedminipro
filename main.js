@@ -162,15 +162,62 @@ function check_parking_4()
 function show_pk1(){
     var status = document.getElementById('status_pk1');
     var cl = document.getElementById('card_pk1')
-    if(NewParking.pk1.stat === 'True')
+    if(NewParking.pk1.stat === 'False')
     {
+        
         status.innerText = 'Available';
     }
     else
     {
-        status.innerText = 'Not available';
+        status.innerText = 'Not Available';
         cl.style.backgroundColor = "red";
+
+    }
 }
+function show_pk2(){
+    var status = document.getElementById('status_pk2');
+    var cl = document.getElementById('card_pk2')
+    if(NewParking.pk1.stat === 'False')
+    {
+        
+        status.innerText = 'Available';
+    }
+    else
+    {
+        status.innerText = 'Not Available';
+        cl.style.backgroundColor = "red";
+
+    }
+}
+function show_pk3(){
+    var status = document.getElementById('status_pk3');
+    var cl = document.getElementById('card_pk3')
+    if(NewParking.pk1.stat === 'False')
+    {
+        
+        status.innerText = 'Available';
+    }
+    else
+    {
+        status.innerText = 'Not Available';
+        cl.style.backgroundColor = "red";
+
+    }
+}
+function show_pk4(){
+    var status = document.getElementById('status_pk4');
+    var cl = document.getElementById('card_pk4')
+    if(NewParking.pk1.stat === 'False')
+    {
+        
+        status.innerText = 'Available';
+    }
+    else
+    {
+        status.innerText = 'Not Available';
+        cl.style.backgroundColor = "red";
+
+    }
 }
 
 // ตั้งdelay
@@ -181,5 +228,8 @@ setInterval(() => {
     check_parking_3();
     check_parking_4();
     show_pk1();
+    show_pk2();
+    show_pk3();
+    show_pk4();
     console.log(NewParking);
 },1000);
