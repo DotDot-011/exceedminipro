@@ -52,6 +52,7 @@ let NewParking = {
     },
 };
 
+var t = 20;
 
 // เอาไว้เช็ก ตอนรถออกถ้ารถออก stat เป็น True
 
@@ -224,21 +225,38 @@ function show_pk4(){
 }
 
 function check_out_pk1(){
+    var card_1 = document.getElementById('alert_card_1');
     if(Show.pk1.stat === 'True')
     {
         console.log("Test");
-        setTimeout(function(){ alert("Cost : "+ Show.pk1.Money
-         + "   Time : " + Show.pk1.time + " Min"); }, 1000);
-        Show.pk1.stat = 'False';
+        card_1.style.visibility = "visible";
+        // card_1.style.width = "7rem";
+        // card_1.style.height =  "13rem";
+        // card_1.style.backgroundColor = "hsl(224, 61%, 50%)";
+        // card_1.style.border = "1px  black";
+        // card_1.style.padding = "0px";
+        // card_1.style.margin = "0rem 8rem";
+        // card_1.style.display = "flex";
+        // card_1.style.justifyContent = "row";
+        // card_1.style.alignItems = "center";
+        // card_1.style.borderRadius = "20px";
+        // Show.pk1.stat = 'False';
+        // t=0;
+        card_1.innerText = "Cost : " + Show.pk1.Money + " Time : " + Show.pk1.time + " Min";
+        setTimeout(function() {
+            Show.pk1.stat = 'False';
+        }, 10000);
+
     }
     else
     {
         console.log("Boom");
-
+        card_1.style.visibility = "hidden";
     }
 }
 
 // ตั้งdelay
+
 setInterval(() => {
     // get_empty();
     check_parking_1();
