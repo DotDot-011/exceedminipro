@@ -320,11 +320,6 @@ function check_out_pk4()
         card_4.style.visibility = "hidden";
     }
 }
-<<<<<<< HEAD
-
-=======
-// ตั้งdelay
->>>>>>> e59e94a50c2eee49a81be299432ad5a9354b235e
 
 var dps = []; // dataPoints
 var chart = new CanvasJS.Chart("chart_1", {
@@ -338,7 +333,7 @@ var chart = new CanvasJS.Chart("chart_1", {
 });
 
 var xVal = 0;
-var yVal = 100; 
+var yVal = 0; 
 var updateInterval = 1000;
 var dataLength = 20; // number of dataPoints visible at any point
 
