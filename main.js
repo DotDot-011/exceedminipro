@@ -64,19 +64,19 @@ let Show = {
         Money: '600',
     },
     pk2:     {
-        stat: 'False',
-        time: '0',
-        Money: '0',
+        stat: 'True',
+        time: '10',
+        Money: '5000',
     },
     pk3:     {
         stat: 'False',
-        time: '0',
-        Money: '0',
+        time: '30',
+        Money: '200',
     },
     pk4:     {
         stat: 'False',
-        time: '0',
-        Money: '0',
+        time: '80',
+        Money: '90',
     },
 };
 
@@ -236,6 +236,66 @@ function check_out_pk1(){
     {
         console.log("Test");
         card_1.style.visibility = "visible";
+        card_1.innerText = "Cost : " + Show.pk1.Money + " Time : " + Show.pk1.time + " Min";
+        setTimeout(function() {
+            Show.pk1.stat = 'False';
+        }, 10000);
+
+    }
+    else
+    {
+        console.log("Boom");
+        card_1.style.visibility = "hidden";
+    }
+
+}
+function check_out_pk2()
+{
+    var card_2 = document.getElementById('alert_card_2');
+    if(Show.pk2.stat === 'True')
+    {
+        console.log("Test");
+        card_2.style.visibility = "visible";
+        card_2.innerText = "Cost : " + Show.pk2.Money + " Time : " + Show.pk2.time + " Min";
+        setTimeout(function() {
+            Show.pk2.stat = 'False';
+        }, 10000);
+
+    }
+    else
+    {
+        console.log("Boom");
+        card_2.style.visibility = "hidden";
+    }
+}
+
+function check_out_pk3()
+{
+    var card_3 = document.getElementById('alert_card_3');
+    if(Show.pk3.stat === 'True')
+    {
+        console.log("Test");
+        card_3.style.visibility = "visible";
+        card_3.innerText = "Cost : " + Show.pk3.Money + " Time : " + Show.pk3.time + " Min";
+        setTimeout(function() {
+            Show.pk3.stat = 'False';
+        }, 10000);
+
+    }
+    else
+    {
+        console.log("Boom");
+        card_3.style.visibility = "hidden";
+    }
+}
+
+function check_out_pk4()
+{
+    var card_4 = document.getElementById('alert_card_4');
+    if(Show.pk4.stat === 'True')
+    {
+        console.log("Test");
+        card_4.style.visibility = "visible";
         // card_1.style.width = "7rem";
         // card_1.style.height =  "13rem";
         // card_1.style.backgroundColor = "hsl(224, 61%, 50%)";
@@ -248,19 +308,23 @@ function check_out_pk1(){
         // card_1.style.borderRadius = "20px";
         // Show.pk1.stat = 'False';
         // t=0;
-        card_1.innerText = "Cost : " + Show.pk1.Money + " Time : " + Show.pk1.time + " Min";
+        card_4.innerText = "Cost : " + Show.pk4.Money + " Time : " + Show.pk4.time + " Min";
         setTimeout(function() {
-            Show.pk1.stat = 'False';
+            Show.pk4.stat = 'False';
         }, 10000);
 
     }
     else
     {
         console.log("Boom");
-        card_1.style.visibility = "hidden";
+        card_4.style.visibility = "hidden";
     }
 }
+<<<<<<< HEAD
 
+=======
+// ตั้งdelay
+>>>>>>> e59e94a50c2eee49a81be299432ad5a9354b235e
 
 var dps = []; // dataPoints
 var chart = new CanvasJS.Chart("chart_1", {
@@ -314,6 +378,10 @@ setInterval(() => {
     check_parking_4();
     show_pk1();
     check_out_pk1();
+    check_out_pk2();
+    check_out_pk3();
+    check_out_pk4();
+
     // console.log(NewParking);
     show_pk2();
     show_pk3();
