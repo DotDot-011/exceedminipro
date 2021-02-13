@@ -29,8 +29,30 @@
 
 #chart_1{
     margin: 0rem 1rem;
-    width: 25rem;
-    height: 13rem;
+    width: 20rem;
+    height: 5rem;
+    display: flex;
+}
+
+#chart_2{
+    margin: 0rem 1rem;
+    width: 20rem;
+    height: 5rem;
+    display: flex;
+}
+
+#chart_3{
+    margin: 0rem 1rem;
+    width: 20rem;
+    height: 5rem;
+    display: flex;
+}
+
+#chart_4{
+    margin: 0rem 1rem;
+    width: 20rem;
+    height: 5rem;
+    display: flex;
 }
 
 .allbox_alert{

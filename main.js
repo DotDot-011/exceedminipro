@@ -321,10 +321,12 @@ function check_out_pk4()
     }
 }
 
+var dataLength = 10; // number of dataPoints visible at any point 
+
 var dps = []; // dataPoints
 var chart = new CanvasJS.Chart("chart_1", {
 	title :{
-		text: "Dynamic Data"
+		text: "1"
 	},
 	data: [{
 		type: "line",
@@ -333,9 +335,7 @@ var chart = new CanvasJS.Chart("chart_1", {
 });
 
 var xVal = 0;
-var yVal = 0; 
-var updateInterval = 1000;
-var dataLength = 20; // number of dataPoints visible at any point
+var yVal = 0;
 
 var updateChart = function (count) {
 
@@ -357,32 +357,141 @@ var updateChart = function (count) {
 	chart.render();
 };
 
+var dps2 = []; // dataPoints
+var chart2 = new CanvasJS.Chart("chart_2", {
+	title :{
+		text: "2"
+	},
+	data: [{
+		type: "line",
+		dataPoints: dps2
+	}]
+});
+
+var xVal2 = 0;
+var yVal2 = 0;
+
+var updateChart2 = function (count) {
+
+	count = count || 1;
+
+	for (var j = 0; j < count; j++) {
+		yVal = yVal +  all_time.pk2;
+		dps2.push({
+			x: xVal2,
+			y: yVal2
+		});
+		xVal2++;
+	}
+
+	if (dps2.length > dataLength) {
+		dps2.shift();
+	}
+
+	chart2.render();
+};
+
+var dps3 = []; // dataPoints
+var chart3 = new CanvasJS.Chart("chart_3", {
+	title :{
+		text: "3"
+	},
+	data: [{
+		type: "line",
+		dataPoints: dps3
+	}]
+});
+
+var xVal3 = 0;
+var yVal3 = 0;
+
+var updateChart3 = function (count) {
+
+	count = count || 1;
+
+	for (var j = 0; j < count; j++) {
+		yVal = yVal +  all_time.pk3;
+		dps3.push({
+			x: xVal3,
+			y: yVal3
+		});
+		xVal3++;
+	}
+
+	if (dps3.length > dataLength) {
+		dps3.shift();
+	}
+
+	chart3.render();
+};
 
 
+var dps4 = []; // dataPoints
+var chart4 = new CanvasJS.Chart("chart_4", {
+	title :{
+		text: "4"
+	},
+	data: [{
+		type: "line",
+		dataPoints: dps4
+	}]
+});
 
+var xVal4 = 0;
+var yVal4 = 0;
 
+var updateChart4 = function (count) {
+
+	count = count || 1;
+
+	for (var j = 0; j < count; j++) {
+		yVal = yVal +  all_time.pk4;
+		dps4.push({
+			x: xVal4,
+			y: yVal4
+		});
+		xVal4++;
+	}
+
+	if (dps4.length > dataLength) {
+		dps4.shift();
+	}
+
+	chart4.render();
+};
 
 
 // ตั้งdelay
+
+
 updateChart(dataLength);
+updateChart2(dataLength);
+updateChart3(dataLength);
+updateChart4(dataLength);
+
 setInterval(() => {
     // get_empty();
     check_parking_1();
     check_parking_2();
     check_parking_3();
     check_parking_4();
-    show_pk1();
+    
     check_out_pk1();
     check_out_pk2();
     check_out_pk3();
     check_out_pk4();
 
+    show_pk1();
     // console.log(NewParking);
     show_pk2();
     show_pk3();
     show_pk4();
     // Plotly.extendTraces("chart_1",{y: [[all_time.pk1]]} , [0]);
     updateChart();
+    updateChart2();
+    updateChart3();
+    updateChart4();
+
     console.log(NewParking);
 
 },1000);
