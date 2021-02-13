@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: hsl(182, 5%, 93%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card{
+    width: 7rem;
+    height: 13rem;
+    background-color: hsl(133, 61%, 50%);
+    border: 1px solid black;
+    margin: 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.a{
+    border: 1px solid black;
+    background-color: solid black;
+    /* visibility: hidden; */
+    display: none;
+
+}
+
+.available{
+    /* border: 1px solid black; */
+    color: white;
+}
