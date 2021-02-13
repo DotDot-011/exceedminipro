@@ -23,5 +23,4 @@ function get_empty() {
 setInterval(() => {
     get_empty();
 
-
 },5000);
