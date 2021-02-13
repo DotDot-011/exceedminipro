@@ -80,10 +80,15 @@ let Show = {
     },
 };
 
-let all_time = 0;
+let all_time = {
+    pk1: 0,
+    pk2: 0,
+    pk3: 0,
+    pk4: 0,
+};
 
 function get_empty() {
-    fetch("mongodb://exceed_user:1q2w3e4r@158.108.182.0:2277/exceed_backend", {
+    fetch("https://exceed1.cpsk-club.xyz", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
 
@@ -101,9 +106,10 @@ function get_empty() {
         // NewParking.pk4.stat = datas.slot4.Availability;
         // NewParking.pk4.time = datas.slot4.min;
         // NewParking.pk4.money = datas.slot4.cost;
-        datas.forEach((data) => {
-            console.log(data);
-        });
+        // all_time.pk1 = Integer.parseInt(datas.pk1.cost_glob);
+        // all_time.pk1 = Integer.parseInt(datas.pk2.cost_glob);
+        // all_time.pk1 = Integer.parseInt(datas.pk3.cost_glob);
+        // all_time.pk1 = Integer.parseInt(datas.pk4.cost_glob);
     });
 }
 
@@ -255,8 +261,51 @@ function check_out_pk1(){
     }
 }
 
-// ตั้งdelay
 
+var dps = []; // dataPoints
+var chart = new CanvasJS.Chart("chart_1", {
+	title :{
+		text: "Dynamic Data"
+	},
+	data: [{
+		type: "line",
+		dataPoints: dps
+	}]
+});
+
+var xVal = 0;
+var yVal = 100; 
+var updateInterval = 1000;
+var dataLength = 20; // number of dataPoints visible at any point
+
+var updateChart = function (count) {
+
+	count = count || 1;
+
+	for (var j = 0; j < count; j++) {
+		yVal = yVal +  all_time.pk1;
+		dps.push({
+			x: xVal,
+			y: yVal
+		});
+		xVal++;
+	}
+
+	if (dps.length > dataLength) {
+		dps.shift();
+	}
+
+	chart.render();
+};
+
+
+
+
+
+
+
+// ตั้งdelay
+updateChart(dataLength);
 setInterval(() => {
     // get_empty();
     check_parking_1();
@@ -269,5 +318,8 @@ setInterval(() => {
     show_pk2();
     show_pk3();
     show_pk4();
+    // Plotly.extendTraces("chart_1",{y: [[all_time.pk1]]} , [0]);
+    updateChart();
     console.log(NewParking);
+
 },1000);
