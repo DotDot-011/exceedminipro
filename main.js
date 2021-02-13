@@ -52,6 +52,7 @@ let NewParking = {
     },
 };
 
+
 // เอาไว้เช็ก ตอนรถออกถ้ารถออก stat เป็น True
 
 let Show = {
@@ -81,20 +82,32 @@ let Show = {
 let all_time = 0;
 
 function get_empty() {
-    fetch("https://backend.cpsk-club.xyz/g1", {
+    fetch("mongodb://exceed_user:1q2w3e4r@158.108.182.0:2277/exceed_backend", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
 
-    }).then((datas) => {
-        NewParking.pk1 = datas.pk1.avai;
-        NewParking.pk2 = datas.pk2.avai;
-        NewParking.pk3 = datas.pk3.avai;
-        NewParking.pk4 = datas.pk4.avai;
+    }).then((response) => response.json())
+    .then((datas) => {
+        // NewParking.pk1.stat = datas.slot1.Availability;
+        // NewParking.pk1.time = datas.slot1.min;
+        // NewParking.pk1.money = datas.slot1.cost;
+        // NewParking.pk2.stat = datas.slot2.Availability;
+        // NewParking.pk2.time = datas.slot2.min;
+        // NewParking.pk2.money = datas.slot2.cost;
+        // NewParking.pk3.stat = datas.slot3.Availability;
+        // NewParking.pk3.time = datas.slot3.min;
+        // NewParking.pk3.money = datas.slot3.cost;
+        // NewParking.pk4.stat = datas.slot4.Availability;
+        // NewParking.pk4.time = datas.slot4.min;
+        // NewParking.pk4.money = datas.slot4.cost;
+        datas.forEach((data) => {
+            console.log(data);
+        });
     });
 }
 
 
-function check_parking_1();
+function check_parking_1()
 {
     if(OldParking.pk1.stat == 'True' && NewParking.pk1.stat == 'False')
     {
@@ -107,7 +120,7 @@ function check_parking_1();
     OldParking.pk1.time = NewParking.pk1.time;
 }
 
-function check_parking_2();
+function check_parking_2()
 {
     if(OldParking.pk1.stat == 'True' && NewParking.pk1.stat == 'False')
     {
@@ -120,7 +133,7 @@ function check_parking_2();
     OldParking.pk2.time = NewParking.pk2.time;
 }
 
-function check_parking_3();
+function check_parking_3()
 {
     if(OldParking.pk3.stat == 'True' && NewParking.pk3.stat == 'False')
     {
@@ -133,7 +146,7 @@ function check_parking_3();
     OldParking.pk3.time = NewParking.pk3.time;
 }
 
-function check_parking_4();
+function check_parking_4()
 {
     if(OldParking.pk4.stat == 'True' && NewParking.pk4.stat == 'False')
     {
@@ -146,6 +159,20 @@ function check_parking_4();
     OldParking.pk4.time = NewParking.pk4.time;
 }
 
+function show_pk1(){
+    var status = document.getElementById('pk1');
+    var cl = document.getElementById('card_pk1')
+    if(NewParking.pk1.stat === 'True')
+    {
+        status.innerText = 'Available';
+    }
+    else
+    {
+        status.innerText = 'Not available';
+        cl.style.color="#e90d0d";
+}
+}
+
 // ตั้งdelay
 setInterval(() => {
     get_empty();
@@ -153,4 +180,6 @@ setInterval(() => {
     check_parking_2();
     check_parking_3();
     check_parking_4();
+    show_pk1();
+    console.log(NewParking);
 },1000);
