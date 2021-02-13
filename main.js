@@ -160,7 +160,7 @@ function check_parking_4()
 }
 
 function show_pk1(){
-    var status = document.getElementById('pk1');
+    var status = document.getElementById('status_pk1');
     var cl = document.getElementById('card_pk1')
     if(NewParking.pk1.stat === 'True')
     {
