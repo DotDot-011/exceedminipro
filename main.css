@@ -4,9 +4,6 @@
     margin: 0;
     box-sizing: border-box;
 }
-.all{
-    
-}
 
 .container{
     width: 100%;
@@ -28,6 +25,12 @@
     align-items: center;
     border-radius: 50px
 
+}
+
+#chart_1{
+    margin: 0rem 1rem;
+    width: 25rem;
+    height: 13rem;
 }
 
 .allbox_alert{
