@@ -169,7 +169,7 @@ function show_pk1(){
     else
     {
         status.innerText = 'Not available';
-        cl.style.color="#e90d0d";
+        cl.style.backgroundColor = "red";
 }
 }
 
