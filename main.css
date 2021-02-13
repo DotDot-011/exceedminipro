@@ -41,14 +41,17 @@
 
 .alert{
     width: 7rem;
-    height: 7rem;
-    background-color: pink;
-    border: 1px  black;
+    height: 5rem;
+    background-color: rgb(184, 83, 235);
+    border: solid darkorchid;
     margin: 0rem 1rem;
     display: flex;
     align-items: center;
     padding: 27px;
-    border-radius: 50px
+    border-radius: 30px;
+    text-align: left;
+    font-size: 15px;
+    color: white
 }
 
 .a{
