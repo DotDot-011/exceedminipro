@@ -69,12 +69,12 @@ let Show = {
         Money: '5000',
     },
     pk3:     {
-        stat: 'False',
+        stat: 'True',
         time: '30',
         Money: '200',
     },
     pk4:     {
-        stat: 'False',
+        stat: 'True',
         time: '80',
         Money: '90',
     },
@@ -236,7 +236,7 @@ function check_out_pk1(){
     {
         console.log("Test");
         card_1.style.visibility = "visible";
-        card_1.innerText = "Cost : " + Show.pk1.Money + " Time : " + Show.pk1.time + " Min";
+        card_1.innerText = "Cost : " + Show.pk1.Money +"\n"+ "Time : " + Show.pk1.time +"\n"+ "Min :";
         setTimeout(function() {
             Show.pk1.stat = 'False';
         }, 10000);
@@ -256,7 +256,7 @@ function check_out_pk2()
     {
         console.log("Test");
         card_2.style.visibility = "visible";
-        card_2.innerText = "Cost : " + Show.pk2.Money + " Time : " + Show.pk2.time + " Min";
+        card_2.innerText = "Cost : " + Show.pk2.Money +"\n"+ "Time : " + Show.pk2.time +"\n"+ "Min :";
         setTimeout(function() {
             Show.pk2.stat = 'False';
         }, 10000);
@@ -276,7 +276,7 @@ function check_out_pk3()
     {
         console.log("Test");
         card_3.style.visibility = "visible";
-        card_3.innerText = "Cost : " + Show.pk3.Money + " Time : " + Show.pk3.time + " Min";
+        card_3.innerText = "Cost : " + Show.pk3.Money +"\n"+ "Time : " + Show.pk3.time +"\n"+ "Min :";
         setTimeout(function() {
             Show.pk3.stat = 'False';
         }, 10000);
@@ -308,7 +308,7 @@ function check_out_pk4()
         // card_1.style.borderRadius = "20px";
         // Show.pk1.stat = 'False';
         // t=0;
-        card_4.innerText = "Cost : " + Show.pk4.Money + " Time : " + Show.pk4.time + " Min";
+        card_4.innerText = "Cost : " + Show.pk4.Money +"\n"+ "Time : " + Show.pk4.time +"\n"+ "Min :";
         setTimeout(function() {
             Show.pk4.stat = 'False';
         }, 10000);
