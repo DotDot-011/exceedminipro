@@ -2,26 +2,26 @@ let OldParking = {
     pk1: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk2: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk3: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk4: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
 };
 
@@ -29,26 +29,26 @@ let NewParking = {
     pk1: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk2: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk3: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
     pk4: 
     {
         stat: 'False',
-        Money: 0,
-        time: 0,
+        Money: '0',
+        time: '0',
     },
 };
 
@@ -58,24 +58,24 @@ let NewParking = {
 let Show = {
     pk1: 
     {
-        stat: 'False',
-        time: 0,
-        Money: 0,
+        stat: 'True',
+        time: '5',
+        Money: '600',
     },
     pk2:     {
         stat: 'False',
-        time: 0,
-        Money: 0,
+        time: '0',
+        Money: '0',
     },
     pk3:     {
         stat: 'False',
-        time: 0,
-        Money: 0,
+        time: '0',
+        Money: '0',
     },
     pk4:     {
         stat: 'False',
-        time: 0,
-        Money: 0,
+        time: '0',
+        Money: '0',
     },
 };
 
@@ -165,21 +165,38 @@ function show_pk1(){
     if(NewParking.pk1.stat === 'True')
     {
         status.innerText = 'Available';
+        cl.style.backgroundColor = "hsl(101, 61%, 50%)";
+        
     }
     else
     {
         status.innerText = 'Not available';
         cl.style.backgroundColor = "red";
+    }
 }
+
+function check_out_pk1(){
+    if(Show.pk1.stat === 'True')
+    {
+        console.log("Test");
+        setTimeout(function(){ alert("Cost : "+ Show.pk1.Money
+         + "   Time : " + Show.pk1.time + " Min"); }, 1000);
+        Show.pk1.stat = 'False';
+    }
+    else
+    {
+        console.log("Boom");
+    }
 }
 
 // ตั้งdelay
 setInterval(() => {
-    get_empty();
+    // get_empty();
     check_parking_1();
     check_parking_2();
     check_parking_3();
     check_parking_4();
     show_pk1();
-    console.log(NewParking);
+    check_out_pk1();
+    // console.log(NewParking);
 },1000);

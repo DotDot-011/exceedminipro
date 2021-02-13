@@ -18,7 +18,7 @@
 .card{
     width: 7rem;
     height: 13rem;
-    background-color: hsl(133, 61%, 50%);
+    background-color: hsl(101, 61%, 50%);
     border: 1px  black;
     margin: 0rem 1rem;
     display: flex;
