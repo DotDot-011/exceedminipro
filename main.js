@@ -5,16 +5,23 @@ let myParking = {
     pk4: '0',
 };
 
+let ParkingMoney = {
+    pk1: 0,
+    pk2: 0,
+    pk3: 0,
+    pk4: 0,
+};
+
 function get_empty() {
     fetch("https://backend.cpsk-club.xyz/g1", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
 
     }).then((datas) => {
-        myParking.pk1 = datasp.pk1;
-        myParking.pk2 = datasp.pk2;
-        myParking.pk3 = datasp.pk3;
-        myParking.pk4 = datasp.pk4;
+        myParking.pk1 = datas.pk1.avai;
+        myParking.pk2 = datas.pk2.avai;
+        myParking.pk3 = datas.pk3.avai;
+        myParking.pk4 = datas.pk4.avai;
     });
 }
 
